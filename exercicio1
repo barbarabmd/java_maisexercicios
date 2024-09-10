@@ -1,0 +1,63 @@
+package exercicio_1;
+
+import java.util.Scanner;
+
+public class produto_estoque {
+	
+
+	    String nome;
+	    double preco;
+	    int quantidade;
+
+	    double valorTotalEmEstoque() {
+	        return preco * quantidade;
+	    }
+
+	    void adicionarProdutos(int quantidade) {
+	        this.quantidade += quantidade;
+	    }
+
+	    void removerProdutos(int quantidade) {
+	        if (quantidade <= this.quantidade) {
+	            this.quantidade -= quantidade;
+	        } else {
+	            System.out.println("quantidade indisponivel no estoque");
+	        }
+	    }
+
+	    void mostrarDados() {
+	        System.out.printf("nome: %s\npreço: %.2f\nquantidade no estoque: %d\nvalor total no estoque: %.2f\n", 
+	                          nome, preco, quantidade, valorTotalEmEstoque());
+	    }
+
+	    public static void main(String[] args) {
+	        Scanner sc = new Scanner(System.in);
+	        produto_estoque produto = new produto_estoque();
+
+	        System.out.print("nome do produto: ");
+	        produto.nome = sc.nextLine();
+	        System.out.print("preço do produto: ");
+	        produto.preco = sc.nextDouble();
+	        System.out.print("quantidade no estoque: ");
+	        produto.quantidade = sc.nextInt();
+
+	        System.out.println("\ninformacoes do produto:");
+	        produto.mostrarDados();
+
+	        System.out.print("\ndigite a quantidade para adicao ao estoque: ");
+	        int qtdEntrada = sc.nextInt();
+	        produto.adicionarProdutos(qtdEntrada);
+	        
+	        System.out.println("\ninformacoes do produto apos entrada no estoque:");
+	        produto.mostrarDados();
+
+	        System.out.print("\ndigite a quantidade a ser tirada do estoque: ");
+	        int qtdSaida = sc.nextInt();
+	        produto.removerProdutos(qtdSaida);
+
+	        System.out.println("\ninformacoes do produto apos a remocao do estoque:");
+	        produto.mostrarDados();
+
+	        sc.close();
+	    }
+	}

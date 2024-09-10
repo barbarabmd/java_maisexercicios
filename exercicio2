@@ -1,0 +1,34 @@
+package exercicio_2;
+
+import java.util.Scanner;
+
+public class funcionario {
+
+		    String nome;
+		    double salario;
+
+		    public static void main(String[] args) {
+		        Scanner sc = new Scanner(System.in);
+		        funcionario funcionario = new funcionario();
+
+		        System.out.print("nome do funcionario: ");
+		        funcionario.nome = sc.nextLine();
+		        System.out.print("salario do funcionario: ");
+		        funcionario.salario = sc.nextDouble();
+
+		        double salarioAntigo = funcionario.salario;
+
+		        if (funcionario.salario >= 1 && funcionario.salario <= 1000) {
+		            funcionario.salario += funcionario.salario * 0.15; 
+		        } else if (funcionario.salario >= 1001 && funcionario.salario <= 1500) {
+		            funcionario.salario += funcionario.salario * 0.10; 
+		        } else if (funcionario.salario >= 1501 && funcionario.salario <= 2000) {
+		            funcionario.salario += funcionario.salario * 0.05; 
+		        }
+
+		        System.out.printf("\nnome: %s\nsalario antigo: R$ %.2f\nsalario novo: R$ %.2f\n", 
+		                          funcionario.nome, salarioAntigo, funcionario.salario);
+
+		        sc.close();
+		 }
+	}

@@ -1,0 +1,65 @@
+package exercicio_3;
+
+import java.util.Scanner;
+
+public class triangulo {
+
+		    public static double raizQuadrada(double num) {
+		        double erro = 1e-15;
+		        double raiz = num;
+
+		        while ((raiz - num / raiz) > erro) {
+		            raiz = (raiz + num / raiz) / 2.0;
+		        }
+
+		        return raiz;
+		    }
+
+
+		    public static double calcularArea(double a, double b, double c) {
+		        double p = (a + b + c) / 2.0;
+		        return raizQuadrada(p * (p - a) * (p - b) * (p - c)); 
+		    }
+
+		    public static void main(String[] args) {
+		        Scanner sc = new Scanner(System.in);
+
+		  
+		        System.out.println("digite as medidas dos lados do triangulo X:");
+		        System.out.print("lado a: ");
+		        double aX = sc.nextDouble();
+		        System.out.print("lado b: ");
+		        double bX = sc.nextDouble();
+		        System.out.print("lado c: ");
+		        double cX = sc.nextDouble();
+
+		       
+		        System.out.println("digite as medidas dos lados do triangulo Y:");
+		        System.out.print("lado a: ");
+		        double aY = sc.nextDouble();
+		        System.out.print("lado b: ");
+		        double bY = sc.nextDouble();
+		        System.out.print("lado c: ");
+		        double cY = sc.nextDouble();
+
+		       
+		        double areaX = calcularArea(aX, bX, cX);
+		        double areaY = calcularArea(aY, bY, cY);
+
+		        
+		        System.out.printf("\narea do triangulo X: %.2f\n", areaX);
+		        System.out.printf("area do triangulo Y: %.2f\n", areaY);
+
+		        
+		        if (areaX > areaY) {
+		            System.out.println("o triangulo X tem a maior area.");
+		        } else if (areaY > areaX) {
+		            System.out.println("o triangulo Y tem a maior area.");
+		        } else {
+		            System.out.println("Os dois triangulos tem a mesma area.");
+		        }
+
+		        sc.close();
+		    }
+		
+	}

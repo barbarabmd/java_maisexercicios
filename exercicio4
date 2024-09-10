@@ -1,0 +1,60 @@
+package exercicio_4;
+
+import java.util.Scanner;
+
+public class nota {
+
+	public static void main(String[] args) {
+
+		        Scanner sc = new Scanner(System.in);
+
+		        System.out.print("nome do aluno: ");
+		        String nome = sc.nextLine();
+
+		        double nota1, nota2, nota3;
+
+		        while (true) {
+		            System.out.print("nota do 1 trimestre (0 a 30): ");
+		            nota1 = sc.nextDouble();
+		            if (nota1 >= 0 && nota1 <= 30) {
+		                break;
+		            } else {
+		                System.out.println("insira um valor apenas entre 0 e 30.");
+		            }
+		        }
+
+		        while (true) {
+		            System.out.print("nota do 2 trimestre (0 a 35): ");
+		            nota2 = sc.nextDouble();
+		            if (nota2 >= 0 && nota2 <= 35) {
+		                break;
+		            } else {
+		                System.out.println("insira um valor apenas entre 0 e 35.");
+		            }
+		        }
+
+		        while (true) {
+		            System.out.print("Nota do 3 trimestre (0 a 35): ");
+		            nota3 = sc.nextDouble();
+		            if (nota3 >= 0 && nota3 <= 35) {
+		                break;
+		            } else {
+		                System.out.println("insira um valor apenas entre 0 e 35.");
+		            }
+		        }
+
+		        double notaFinal = nota1 + nota2 + nota3;
+
+		        System.out.printf("\nnota final do aluno %s: %.2f\n", nome, notaFinal);
+
+		        if (notaFinal >= 70) {
+		            System.out.println("aprovado");
+		        } else {
+		            double pontosFaltando = 70 - notaFinal;
+		            System.out.printf("reprovado. faltaram %.2f pontos para passar.\n", pontosFaltando);
+		        }
+
+		        sc.close();
+		    }
+		}
+
